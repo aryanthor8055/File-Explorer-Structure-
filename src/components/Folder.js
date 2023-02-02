@@ -1,17 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Folder = ({ explorer }) => {
+    const [expand, setExpand] = useState(false)
 
     if (explorer.isFolder) {
         return (
             <div style={{ marginTop: 5 }}>
-                <div className='folder'>
+                <div className='folder' onClick={() => setExpand(!expand)}>
                     <span>📁{explorer.name}</span>
                 </div>
-                <div>
+                <div style={{ display: expand ? "block" : "none", paddingLeft: 25 }}>
                     {explorer.items.map((exp) => {
                         return (
-                            <span>{exp.name}</span>
+                            <span><Folder explorer={exp} key={exp.id} /></span>
                         )
                     })}
                 </div>
