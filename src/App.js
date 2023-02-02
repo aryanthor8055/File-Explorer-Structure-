@@ -1,3 +1,4 @@
+import NavbarComponent from "./components/Navbar";
 import { useState } from "react";
 import Folder from "./components/Folder";
 import useTraverseTree from "./hooks/use-traverse-tree";
@@ -16,6 +17,7 @@ export default function App() {
 
   return (
     <div className="App">
+      <NavbarComponent />
       <Folder handleInsertNode={handleInsertNode} explorer={explorerData} />
     </div>
   );
